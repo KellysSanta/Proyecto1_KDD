@@ -54,6 +54,12 @@ nav ul li {
 #preguntaUno{
   display: none;
 }
+#preguntaDos{
+  display: none;
+}
+#preguntaTres{
+  display: none;
+}
 
 
 .principal {
