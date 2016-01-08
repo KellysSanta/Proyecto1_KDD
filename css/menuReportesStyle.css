@@ -1,0 +1,160 @@
+a{
+  text-decoration: none;
+  color:#333;
+
+}
+
+body
+  {
+    margin:0;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 900;
+    font-size:40px;
+    line-height:1.428571429;
+   
+    background-color:#fff;
+    display: block;
+  }
+
+
+h1
+{
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+
+}
+
+
+nav
+  {
+    display: block;
+    background: #000000;
+      box-shadow: rgba(0,0,0,0.5) 0px 5px 5px;
+    /*border-radius: 5px;*/
+    position: relative;
+        min-height: 63px;
+    padding-right: 15px;
+       padding-left: 15px;
+  }
+
+
+
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1em 0 0;
+  text-decoration: none;
+}
+
+
+
+
+
+.principal {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  color: #1CB7AC;
+  background-color: transparent;
+  border-radius: 4px;
+
+}
+
+
+
+.principal:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.columna1{
+  background: rgb(255,255,255);;
+  padding-left: 8%;
+  padding-right: 8%;
+  float: left;
+  position: relative;  
+  min-height: 1px;
+  display: block;
+
+}
+
+.contenido{
+  display: inline-block;
+  width: 100%;}
+
+
+
+
+.centro{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.container {
+  background-image: url("img/icono.jpg");
+  background: rgb(255,255,255);
+  width: 100%;}
+
+
+.cuadros{
+  margin-top: 10px;
+  background: #ffffff; 
+  border: 1px dotted #3F857E;;
+  margin-bottom: 10px;
+  margin-left: 1%;
+  padding-left: 1%;
+  display: inline-block;
+  width: 47%;
+}
+
+
+.derecha{
+    float: right!important;
+}
+
+.img-circulo{
+  width: 90%;
+  margin: 10px 5%;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 0;
+}
+
+.logo{
+  padding-left: 1%;
+  background: #fff;
+  display: inline-block;
+  width: 32%;
+  margin-bottom: 1%;
+}
+
+.menu_principal{
+  padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 0;
+}
+
+
+
+.nombre{
+  display: inline-block;
+  padding-bottom: 25px;
+  padding-top: 20px;
+  margin: 0px 0 20px 15px;
+  border-bottom: 2px solid #3F857E;
+  width: 50%
+}
+
+
+
+

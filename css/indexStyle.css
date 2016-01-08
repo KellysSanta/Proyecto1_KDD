@@ -1,0 +1,112 @@
+body
+  {
+    margin:0;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 900;
+    font-size:40px;
+    line-height:1.428571429;
+    color:#333;
+    background-color:#000;
+    display: block;
+  }
+
+nav
+  {
+    display: block;
+    background: #000000;
+      box-shadow: rgba(0,0,0,0.5) 0px 5px 5px;
+    /*border-radius: 5px;*/
+    position: relative;
+        min-height: 63px;
+    padding-right: 15px;
+       padding-left: 15px;
+  }
+
+
+
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1em 0 0;
+  text-decoration: none;
+}
+
+
+
+
+
+.principal {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  color: #1CB7AC;
+  background-color: transparent;
+  border-radius: 4px;
+
+}
+
+
+
+.principal:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.columna1{
+  background: rgb(255,255,255);;
+  border-radius: 15%;
+  /*padding-left: 6%;*/
+  /* margin:1.5% 18%; */
+  width: 100%;
+  float: left;
+  position: relative;
+    
+  min-height: 1px;
+    
+  /*padding-right: 15px;*/
+   display: block;
+
+}
+
+.contenido{
+  display: inline-block;
+  width: 100%;}
+
+
+
+
+.centro{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.container {
+  background-image: url("img/icono.jpg");
+  background: rgb(255,255,255);
+  width: 100%;}
+
+
+
+
+
+
+
+
+.menu_principal{
+  padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 0;
+}
+
+
+
+
+
+
+
