@@ -61,6 +61,19 @@ nav ul li {
   display: none;
 }
 
+#preguntaCuatro{
+  display: none;
+}
+
+#preguntaCinco{
+  display: none;
+}
+
+#preguntaSeis{
+  display: none;
+}
+
+
 
 .principal {
   text-decoration: none;
