@@ -10,7 +10,11 @@ var $form = $('.pregunta1'),
 	$form5 = $('.pregunta5'),
 	$button5 = $('#mostrarPregunta5'),
 	$form6 = $('.pregunta6'),
-	$button6 = $('#mostrarPregunta6');
+	$button6 = $('#mostrarPregunta6'),
+	$form7 = $('.pregunta7'),
+	$button7 = $('#mostrarPregunta7'),
+	$form8 = $('.pregunta8'),
+	$button8 = $('#mostrarPregunta8');
 
 
 
@@ -52,6 +56,18 @@ function mostrarFormulario6()
 	return false; /*Quita el efecto que tiene por defecto la etiqueta a, ya que esta va a una url*/
 }
 
+function mostrarFormulario7()
+{
+	$form7.slideToggle();/*Si esta oculto lo muestra, si esta visible lo oculta*/
+	return false; /*Quita el efecto que tiene por defecto la etiqueta a, ya que esta va a una url*/
+}
+
+function mostrarFormulario8()
+{
+	$form8.slideToggle();/*Si esta oculto lo muestra, si esta visible lo oculta*/
+	return false; /*Quita el efecto que tiene por defecto la etiqueta a, ya que esta va a una url*/
+}
+
 //Eventos
 $button.click( mostrarFormulario1 );
 $button2.click( mostrarFormulario2 );
@@ -59,3 +75,5 @@ $button3.click( mostrarFormulario3 );
 $button4.click( mostrarFormulario4 );
 $button5.click( mostrarFormulario5 );
 $button6.click( mostrarFormulario6 );
+$button7.click( mostrarFormulario7 );
+$button8.click( mostrarFormulario8 );

@@ -73,6 +73,13 @@ nav ul li {
   display: none;
 }
 
+#preguntaSiete{
+  display: none;
+}
+
+#preguntaOcho{
+  display: none;
+}
 
 
 .principal {
