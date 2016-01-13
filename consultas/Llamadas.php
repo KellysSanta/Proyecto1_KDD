@@ -25,13 +25,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>   
-            <a class="navbar-brand" href="../menuReportes.html">KDD - Departamentos</a>
+            <a class="navbar-brand" href="../menuReportes.php">KDD - Call Center</a>
         </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cq.php')" data-toggle="tooltip" data-placement="right" data-original-title="¿Cuáles con las cuentas y su departamento que más dinero mueven?"><i class=" fa fa-industry fa-fw"></i> Cuentas de mas movimiento</a></li>
-                 <li><a  href="#" onclick="actualizar('cp.php')" data-toggle="tooltip" data-placement="right" data-original-title="Presupuesto por departamento"><i class=" fa fa-industry fa-fw"></i> Presupuesto</a></li>
+                  <li><a  href="#" onclick="actualizar('cf.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de llamadas por franjas horarias en días laborales"><i class=" fa fa-industry fa-fw"></i> Llamadas por franja horaria</a></li>
+                  <li><a  href="#" onclick="actualizar('cg.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación del nivel de llamadas al call center en días laborales Vs días festivos"><i class=" fa fa-industry fa-fw"></i> Llamadas  festivos vs laborales</a></li>
                 </ul>
             </div>
         </div>
@@ -39,8 +39,8 @@
     <div id="page-wrapper">
           <div class="row">
             <div class="col-lg-12">
-              <h1 class="page-header">Apartado Departamentos,</h1>
-              <br>Aqui encontrara los informes y consultas relacionadas con los departamentos
+              <h1 class="page-header">Apartado ventas,</h1>
+              <br>Aqui encontrara los informes y consultas relacionadas con las ventas
             </div>
           </div>
     </div>
@@ -66,38 +66,6 @@
               $('#page-wrapper').html(data);
               $('html,body').scrollTop(0);
           });
-      }
-      function error(mensaje){
-          $('#mensajes').html("<div class='alert alert-danger'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error: </strong>"+mensaje+"</div>");
-      }
-      function realizado(mensaje){
-          $('#mensajes').html("<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>"+mensaje+"</div>");
-      }
-      function formulario(form){
-          var formulario=form.serialize(), url = form.attr( "action" );
-          var formulario=form.serialize(), url = form.attr( "action" );
-          var re;
-          $.ajax({
-              async:false, cache:false, dataType:"html", type: 'POST', url: url, data: formulario, 
-              success:  function(respuesta){  
-                re= respuesta;
-              },
-              beforeSend:function(){},
-              error:function(objXMLHttpRequest){}
-          });
-          return re;
-      }
-      function accion(url){
-          var re;
-          $.ajax({
-              async:false, cache:false, dataType:"html", type: 'GET', url: url, data: '', 
-              success:  function(respuesta){  
-                re= respuesta;
-              },
-              beforeSend:function(){},
-              error:function(objXMLHttpRequest){}
-          });
-          return re;
       }
       var config = {
           '.chosen-select'           : {inherit_select_classes:true, width: "95%"},
