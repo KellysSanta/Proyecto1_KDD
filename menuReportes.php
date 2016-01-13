@@ -48,7 +48,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-						<a  href="Ventas.php"><h1>Ventas</h1></a>
+						<a  href="consultas/Ventas.php"><h1>Ventas</h1></a>
 					</div>
 					Mensajes sobre ventas
 			</div>
@@ -57,7 +57,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-					    <a  href="Clientes.php"><h1>Clientes</h1></a>
+					    <a  href="consultas/Clientes.php"><h1>Clientes</h1></a>
 					</div>
 					Mensaje sobre clientes
 			</div>
@@ -66,7 +66,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-						<a  href="Promociones.php"><h1>Promos</h1></a>
+						<a  href="consultas/Promociones.php"><h1>Promos</h1></a>
 					</div>
 					Mensajes sobre Promociones
 			</div>
@@ -75,7 +75,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-							<a  href="Productos.php"><h1>Productos</h1></a>
+							<a  href="consultas/Productos.php"><h1>Productos</h1></a>
 
 					</div>
 					Mensaje sobre productos
@@ -85,7 +85,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-							<a  href="Departamentos.php"><h1>Depa/tos</h1></a>
+							<a  href="consultas/Departamentos.php"><h1>Depa/tos</h1></a>
 
 					</div>
 					Mensajes sobre departamentos
@@ -95,7 +95,7 @@
 						<img class="img-circulo" alt="140x140" src="img/icono.jpg">
 					</div>
 					<div class="nombre">
-							<a  href="Llamadas.php"><h1>Llamadas</h1></a>
+							<a  href="consultas/Llamadas.php"><h1>Llamadas</h1></a>
 
 					</div>
 					Mensaje sobre Llamadas
