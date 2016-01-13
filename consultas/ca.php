@@ -45,8 +45,8 @@ var chart = AmCharts.makeChart("chartdiv", {
 
   chartCursor: {
       cursorAlpha: 0,
-      zoomable: false,
-      categoryBalloonEnabled: false
+      zoomable: true,
+      categoryBalloonEnabled: true
   },
   "export": {
       "enabled": true
@@ -61,4 +61,4 @@ var chart = AmCharts.makeChart("chartdiv", {
 <script type="text/javascript" src="../static/amcharts/plugins/export/export.js"></script>
 <link  type="text/css" href="../static/amcharts/plugins/export/export.css" rel="stylesheet">
 <!-- <![endif]-->
-<div id="chartdiv" style="width: 100%; height: 400px;"></div>
+<div id="chartdiv" style="width: 100%; height: 1000px;"></div>

@@ -25,13 +25,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>   
-            <a class="navbar-brand" href="../menuReportes.html">KDD</a>
+            <a class="navbar-brand" href="../menuReportes.html">KDD - Promociones</a>
         </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                   <li><a  href="#" onclick="actualizar('ca_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Promociones mas tomadas por los clientes"><i class=" fa fa-industry fa-fw"></i> Mas tomadas</a></li>
-                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por promoción y producto"><i class=" fa fa-industry fa-fw"></i> Comparacion</a></li>
                   <li><a  href="#" onclick="actualizar('cd_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="¿Cuál es la promoción de ventas por volumen que más prefieren los clientes?"><i class=" fa fa-industry fa-fw"></i> Preferencia por volumen</a></li>
                 </ul>
             </div>

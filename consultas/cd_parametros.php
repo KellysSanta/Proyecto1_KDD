@@ -88,7 +88,7 @@
       //console.log($("#promociones").val())
       if(fecha_hasta>=fecha_desde){
         //console.log (fecha_desde+" "+fecha_hasta);
-        $.get('c1.php', {desde:fecha_desde,hasta:fecha_hasta,promociones:$("#promociones").val()}, function(data){
+        $.get('ca.php', {desde:fecha_desde,hasta:fecha_hasta,promociones:$("#promociones").val()}, function(data){
           //console.log($("#promociones").val());
           $('#resultados').html(data);
         //  console.log(data);
