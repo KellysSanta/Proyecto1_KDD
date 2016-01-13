@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>   
-            <a class="navbar-brand" href="../menuReportes.html">KDD - Promociones</a>
+            <a class="navbar-brand" href="../menuReportes.php">KDD - Promociones</a>
         </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
