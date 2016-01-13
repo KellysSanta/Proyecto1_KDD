@@ -25,14 +25,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>   
-            <a class="navbar-brand" href="../menuReportes.html">KDD</a>
+            <a class="navbar-brand" href="../menuReportes.html">KDD - Ventas</a>
         </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('ca_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Promociones mas tomadas por los clientes"><i class=" fa fa-industry fa-fw"></i> Mas tomadas</a></li>
-                  <li><a  href="#" onclick="actualizar('consultas/c1.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por promoción y producto"><i class=" fa fa-industry fa-fw"></i> Comparacion</a></li>
-                  <li><a  href="#" onclick="actualizar('cd_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="¿Cuál es la promoción de ventas por volumen que más prefieren los clientes?"><i class=" fa fa-industry fa-fw"></i> Preferencia por volumen</a></li>
+                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por promoción y producto"><i class=" fa fa-industry fa-fw"></i> Comp. Promocion y producto</a></li>
+                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por volumen frente a ventas por temporada"><i class=" fa fa-industry fa-fw"></i> Comp. Volumen</a></li>
+                  <li><a  href="#" onclick="actualizar('ce_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparativo entre ventas por Internet y los vendedores de la empresa"><i class=" fa fa-industry fa-fw"></i> Comparativo</a></li>
+                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Nivel de ventas por año,mes, trimestre y semestre"><i class=" fa fa-industry fa-fw"></i> Nivel de ventas</a></li>
+                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Total de ventas de productos agrupados por categoría"><i class=" fa fa-industry fa-fw"></i> Total por productos</a></li>
+                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Total de ventas agrupado por países"><i class=" fa fa-industry fa-fw"></i> Total por paises</a></li>
+                  <li><a  href="#" onclick="actualizar('ci_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Monedas más usadas por los clientes en las ventas"><i class=" fa fa-industry fa-fw"></i> Monedas + usadas</a></li>
                 </ul>
             </div>
         </div>
@@ -40,8 +44,8 @@
     <div id="page-wrapper">
           <div class="row">
             <div class="col-lg-12">
-              <h1 class="page-header">Apartado promociones,</h1>
-              <br>Aqui encontrara los informes y consultas relacionadas con las promociones
+              <h1 class="page-header">Apartado ventas,</h1>
+              <br>Aqui encontrara los informes y consultas relacionadas con las ventas
             </div>
           </div>
     </div>
@@ -67,38 +71,6 @@
               $('#page-wrapper').html(data);
               $('html,body').scrollTop(0);
           });
-      }
-      function error(mensaje){
-          $('#mensajes').html("<div class='alert alert-danger'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error: </strong>"+mensaje+"</div>");
-      }
-      function realizado(mensaje){
-          $('#mensajes').html("<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>"+mensaje+"</div>");
-      }
-      function formulario(form){
-          var formulario=form.serialize(), url = form.attr( "action" );
-          var formulario=form.serialize(), url = form.attr( "action" );
-          var re;
-          $.ajax({
-              async:false, cache:false, dataType:"html", type: 'POST', url: url, data: formulario, 
-              success:  function(respuesta){  
-                re= respuesta;
-              },
-              beforeSend:function(){},
-              error:function(objXMLHttpRequest){}
-          });
-          return re;
-      }
-      function accion(url){
-          var re;
-          $.ajax({
-              async:false, cache:false, dataType:"html", type: 'GET', url: url, data: '', 
-              success:  function(respuesta){  
-                re= respuesta;
-              },
-              beforeSend:function(){},
-              error:function(objXMLHttpRequest){}
-          });
-          return re;
       }
       var config = {
           '.chosen-select'           : {inherit_select_classes:true, width: "95%"},
