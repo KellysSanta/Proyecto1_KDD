@@ -7,7 +7,7 @@
   var chart;
   var chartData = [
     <?php
-      $query = "select P.EnglishProductName, sum(I.unitsout)as mov from FactProductInventory as I join dimproduct as P on P.productkey = I.productkey where I.DateKey between '".$_GET["desde"]."' and '".$_GET["hasta"]."' group by P.EnglishProductName order by mov desc limit ".$_GET["limite_pr"].";"; 
+      $query = "select P.EnglishProductName, sum(I.unitsout)as mov from FactProductInventory as I join dimproduct as P on P.productkey = I.productkey where I.DateKey between '".$_GET["desde"]."' and '".$_GET["hasta"]."' group by P.EnglishProductName order by mov asc limit ".$_GET["limite_pr"].";"; 
       $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
       $restulado = "";
       while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
