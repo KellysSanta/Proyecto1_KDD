@@ -30,7 +30,8 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cl_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Productos que casi nunca se venden"><i class=" fa fa-industry fa-fw"></i> Menor venta</a></li>
+                  <li><a  href="#" onclick="actualizar('cl_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Productos que más unidades en inventario tienen"><i class=" fa fa-industry fa-fw"></i> Mayor unidades en inventario</a></li>
+                  <li><a  href="#" onclick="actualizar('cm_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Productos que mas se demoran en inventario"><i class=" fa fa-industry fa-fw"></i> Demora en inventario</a></li>
                 </ul>
             </div>
         </div>
