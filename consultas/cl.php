@@ -18,60 +18,38 @@
   pg_free_result($result);
 ?>
 var chart = AmCharts.makeChart("chartdiv", {
-  type: "pie",
-  "startDuration": 0,
+  type: "serial",
   dataProvider: chartData,
-  "theme": "light",
-  "addClassNames": true,
-  "legend":{
-    "position":"right",
-    "marginRight":100,
-    "autoMargins":false
+  categoryField: "descripcion",
+  depth3D: 20,
+  angle: 30,
+
+  categoryAxis: {
+      labelRotation: 90,
+      gridPosition: "start"
   },
-  "innerRadius": "30%",
-  "defs": {
-    "filter": [{
-      "id": "shadow",
-      "width": "200%",
-      "height": "200%",
-      "feOffset": {
-        "result": "offOut",
-        "in": "SourceAlpha",
-        "dx": 0,
-        "dy": 0
-      },
-      "feGaussianBlur": {
-        "result": "blurOut",
-        "in": "offOut",
-        "stdDeviation": 5
-      },
-      "feBlend": {
-        "in": "SourceGraphic",
-        "in2": "blurOut",
-        "mode": "normal"
-      }
-    }]
+
+  valueAxes: [{
+      title: "Valor"
+  }],
+
+  graphs: [{
+      valueField: "valor",
+      type: "column",
+      lineAlpha: 0,
+      fillAlphas: 1
+  }],
+
+  chartCursor: {
+      cursorAlpha: 0,
+      zoomable: true,
+      categoryBalloonEnabled: true
   },
-  "valueField": "valor",
-  "titleField": "clase",
   "export": {
-    "enabled": true
+      "enabled": true
   }
-  
 
 });
-chart.addListener("init", handleInit);
-chart.addListener("rollOverSlice", function(e) {
-  handleRollOver(e);
-});
-
-function handleInit(){
-  chart.legend.addListener("rollOverItem", handleRollOver);
-}
-function handleRollOver(e){
-  var wedge = e.dataItem.wedge.node;
-  wedge.parentNode.appendChild(wedge);  
-}
 </script>
 <!-- scripts for exporting chart as an image -->
 <!-- Exporting to image works on all modern browsers except IE9 (IE10 works fine) -->
