@@ -79,7 +79,7 @@
       var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
       var limite_p = parseInt($('#limite_p').val());
       if(fecha_hasta>=fecha_desde){
-        $.get('ce.php', {desde:fecha_desde,hasta:fecha_hasta,limite_pr:limite_p}, function(data){
+        $.get('cm.php', {desde:fecha_desde,hasta:fecha_hasta,limite_pr:limite_p}, function(data){
           $('#resultados').html(data);
         });
       }else alert("Rango de fechas erroneo.");
