@@ -30,8 +30,8 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cq.php')" data-toggle="tooltip" data-placement="right" data-original-title="¿Cuáles con las cuentas y su departamento que más dinero mueven?"><i class=" fa fa-industry fa-fw"></i> Cuentas de mas movimiento</a></li>
-                 <li><a  href="#" onclick="actualizar('cp.php')" data-toggle="tooltip" data-placement="right" data-original-title="Presupuesto por departamento"><i class=" fa fa-industry fa-fw"></i> Presupuesto</a></li>
+                  <li><a  href="#" onclick="actualizar('cq_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="¿Cuáles con las cuentas y su departamento que más dinero mueven?"><i class=" fa fa-industry fa-fw"></i> Cuentas de mas movimiento</a></li>
+                 <li><a  href="#" onclick="actualizar('cp_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Presupuesto por departamento"><i class=" fa fa-industry fa-fw"></i> Presupuesto</a></li>
                 </ul>
             </div>
         </div>

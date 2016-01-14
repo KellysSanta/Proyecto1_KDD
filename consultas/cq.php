@@ -7,7 +7,7 @@
 <?php
 
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = "select (a.accountdescription || ' - ' || d.departmentgroupname) as nombre,  to_char(f.am,'9999999999999999999999.9999') as am from dimaccount AS a join (select accountkey, departmentgroupkey, sum(amount) as am from factfinance group by accountkey, departmentgroupkey) as f on f.accountkey = a.accountkey join dimdepartmentgroup as d on f.departmentgroupkey = d.departmentgroupkey order by am desc;";
+  $query = "select (a.accountdescription || ' - ' || d.departmentgroupname) as nombre,  to_char(f.am,'9999999999999999999999.9999') as am from dimaccount AS a join (select accountkey, departmentgroupkey, sum(amount) as am from factfinance group by accountkey, departmentgroupkey) as f on f.accountkey = a.accountkey join dimdepartmentgroup as d on f.departmentgroupkey = d.departmentgroupkey where f.DateKey between '".$_GET["desde"]."' and '".$_GET["hasta"]."' order by am desc limit ".$_GET["limite_pr"].";";
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
