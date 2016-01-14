@@ -58,8 +58,8 @@
       var fecha_hasta = parseInt($('#year_hasta').val());
         $.get('cl.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
           $('#resultados').html(data);
-        );
-      }else alert("Rango de fechas erroneo.");
+        });
+
     });
 
     for (var selector in config) {
