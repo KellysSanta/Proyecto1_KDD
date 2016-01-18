@@ -1,12 +1,13 @@
 <?php include '../conexion.php'; ?>
 <script src="../static/amcharts/amcharts.js" type="text/javascript"></script>
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
+<script src="../static/amcharts/themes/light.js"></script>
 <script>
   var chart;
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT gender AS genero, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY gender;';
+  $query = 'SELECT gender AS genero, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY gender';
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }

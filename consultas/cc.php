@@ -1,15 +1,13 @@
 <?php include '../conexion.php'; ?>
 <script src="../static/amcharts/amcharts.js" type="text/javascript"></script>
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
+<script src="../static/amcharts/themes/light.js"></script>
 <script>
   var chart;
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT englishpromotionname AS nombre, count (*) as ventas FROM(SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factinternetsales WHERE dimpromotion.promotionkey = factinternetsales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factresellersales WHERE dimpromotion.promotionkey = factresellersales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') AS mitabla1 GROUP BY englishpromotionname;';
-  for($i = 0; $i<count($_GET["promociones"]);$i++){
-    $query = $query."".$_GET["promociones"][$i].",";
-  }
+  $query = 'SELECT englishpromotionname AS nombre, count (*) as ventas FROM(SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factinternetsales WHERE dimpromotion.promotionkey = factinternetsales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factresellersales WHERE dimpromotion.promotionkey = factresellersales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') AS mitabla1 GROUP BY englishpromotionname';
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
