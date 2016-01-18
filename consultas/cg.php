@@ -6,14 +6,14 @@
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT wagetype, sum(calls) as x FROM factcallcenter GROUP BY wagetype;';
+  $query = 'SELECT wagetype AS tipo_dia, sum(calls) AS total FROM factcallcenter WHERE date BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY wagetype;';
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['wagetype']."', 'compras':".$line['x']."},";
+      $resultado= $resultado."{'promocion': '".$line['tipo_dia']."', 'compras':".$line['total']."},";
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";

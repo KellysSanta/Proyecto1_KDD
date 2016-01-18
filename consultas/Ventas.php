@@ -30,9 +30,9 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cc.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por promoción"><i class=" fa fa-industry fa-fw"></i> Comp. Promocion</a></li>
-                  <li><a  href="#" onclick="actualizar('ch.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por producto"><i class=" fa fa-industry fa-fw"></i> Comp. Producto</a></li>
-                  <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por volumen frente a ventas por temporada"><i class=" fa fa-industry fa-fw"></i> Comp. Volumen</a></li>
+                  <li><a  href="#" onclick="actualizar('cc_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por promoción"><i class=" fa fa-industry fa-fw"></i> Comp. Promocion</a></li>
+                  <li><a  href="#" onclick="actualizar('ch_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por producto"><i class=" fa fa-industry fa-fw"></i> Comp. Producto</a></li>
+                  <li><a  href="#" onclick="actualizar('cj_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de ventas por volumen frente a ventas por temporada"><i class=" fa fa-industry fa-fw"></i> Comp. Volumen</a></li>
                   <li><a  href="#" onclick="actualizar('ce_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparativo entre ventas por Internet y los vendedores de la empresa"><i class=" fa fa-industry fa-fw"></i> Comparativo</a></li>
                   <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Nivel de ventas por año,mes, trimestre y semestre"><i class=" fa fa-industry fa-fw"></i> Nivel de ventas</a></li>
                   <li><a  href="#" onclick="actualizar('')" data-toggle="tooltip" data-placement="right" data-original-title="Total de ventas de productos agrupados por categoría"><i class=" fa fa-industry fa-fw"></i> Total por productos</a></li>

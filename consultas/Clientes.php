@@ -30,8 +30,12 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cf_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de llamadas por franjas horarias en días laborales"><i class=" fa fa-industry fa-fw"></i> Llamadas por franja horaria</a></li>
-                  <li><a  href="#" onclick="actualizar('cg_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación del nivel de llamadas al call center en días laborales Vs días festivos"><i class=" fa fa-industry fa-fw"></i> Llamadas  festivos vs laborales</a></li>
+                  <li><a  href="#" onclick="actualizar('pa_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por genero"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por genero</a></li>
+                  <li><a  href="#" onclick="actualizar('pb_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de educación"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por educación</a></li>
+                  <li><a  href="#" onclick="actualizar('pc_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por posesión de vehiculos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por vehiculos</a></li>
+                  <li><a  href="#" onclick="actualizar('pd_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por estado civil"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por estado civil</a></li>
+                  <li><a  href="#" onclick="actualizar('pe_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por hijos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por hijos</a></li>
+                  <li><a  href="#" onclick="actualizar('pf_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de ingresos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por ingresos</a></li>
                 </ul>
             </div>
         </div>

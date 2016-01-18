@@ -6,14 +6,14 @@
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT englishproductname, count(*) AS n FROM (SELECT dimproduct.productkey, dimproduct.englishproductname FROM factinternetsales , dimproduct WHERE dimproduct.productkey = factinternetsales.productkey UNION ALL SELECT dimproduct.productkey, dimproduct.englishproductname FROM factresellersales , dimproduct WHERE dimproduct.productkey = factresellersales.productkey) AS mitabla2 GROUP BY englishproductname;';
+  $query = 'SELECT englishproductname AS nombre, count(*) AS ventas FROM (SELECT dimproduct.productkey, dimproduct.englishproductname FROM factinternetsales , dimproduct WHERE dimproduct.productkey = factinternetsales.productkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT dimproduct.productkey, dimproduct.englishproductname FROM factresellersales , dimproduct WHERE dimproduct.productkey = factresellersales.productkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') AS mitabla2 GROUP BY englishproductname ORDER BY ventas DESC LIMIT '.$_GET["limite_pr"].';';
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado.'{"promocion": "'.$line['englishproductname'].'","compras":'.$line['n'].'},';
+      $resultado= $resultado.'{"promocion": "'.$line['nombre'].'","compras":'.$line['ventas'].'},';
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";

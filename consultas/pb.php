@@ -6,14 +6,14 @@
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT shift AS franja, sum(calls) AS total FROM factcallcenter WHERE date BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY shift;';
+  $query = 'SELECT spanisheducation AS educacion, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY spanisheducation;';
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['franja']."', 'compras':".$line['total']."},";
+      $resultado= $resultado."{'promocion': '".$line['educacion']."', 'compras':".$line['total']."},";
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
