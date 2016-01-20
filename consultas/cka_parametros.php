@@ -3,7 +3,7 @@
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"> Comparativo de compras por estado civil</h1>
+      <h1 class="page-header"> Comparativo de compras por genero</h1>
     </div>
   </div>
   <div class="row">
@@ -72,7 +72,7 @@
       var fecha_desde = parseInt($('#year_desde').val()+""+$('#month_desde').val()+""+$('#day_desde').val());
       var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
       if(fecha_hasta>=fecha_desde){
-        $.get('pd.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
+        $.get('cka.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
           $('#resultados').html(data);
         });
       }else alert("Rango de fechas erroneo.");

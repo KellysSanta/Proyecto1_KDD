@@ -25,17 +25,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>   
-            <a class="navbar-brand" href="../menuReportes.php">KDD - Call Center</a>
+            <a class="navbar-brand" href="../menuReportes.php">KDD - Clientes</a>
         </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('pa_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por genero"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por genero</a></li>
-                  <li><a  href="#" onclick="actualizar('pb_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de educación"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por educación</a></li>
-                  <li><a  href="#" onclick="actualizar('pc_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por posesión de vehiculos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por vehiculos</a></li>
-                  <li><a  href="#" onclick="actualizar('pd_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por estado civil"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por estado civil</a></li>
-                  <li><a  href="#" onclick="actualizar('pe_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por hijos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por hijos</a></li>
-                  <li><a  href="#" onclick="actualizar('pf_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de ingresos"><i class=" fa fa-industry fa-fw"></i> Comparativo de compras por ingresos</a></li>
+                  <li><a  href="#" onclick="actualizar('cka_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por genero"><i class=" fa fa-industry fa-fw"></i> Comp. compras por genero</a></li>
+                  <li><a  href="#" onclick="actualizar('ckb_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de educación"><i class=" fa fa-industry fa-fw"></i> Comp. compras por educación</a></li>
+                  <li><a  href="#" onclick="actualizar('ckc_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por posesión de vehiculos"><i class=" fa fa-industry fa-fw"></i> Comp. compras por vehiculos</a></li>
+                  <li><a  href="#" onclick="actualizar('ckd_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por estado civil"><i class=" fa fa-industry fa-fw"></i> Comp. compras por estado civil</a></li>
+                  <li><a  href="#" onclick="actualizar('cke_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por hijos"><i class=" fa fa-industry fa-fw"></i> Comp. compras por hijos</a></li>
+                  <li><a  href="#" onclick="actualizar('ckf_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de compras por nivel de ingresos"><i class=" fa fa-industry fa-fw"></i> Comp. compras por ingresos</a></li>
                 </ul>
             </div>
         </div>

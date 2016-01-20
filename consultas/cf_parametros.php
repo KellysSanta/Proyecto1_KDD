@@ -3,7 +3,7 @@
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"> Comparativo de llamadas por franjas horarias en días laborales</h1>
+      <h1 class="page-header">Promociones mas tomadas por los clientes</h1>
     </div>
   </div>
   <div class="row">
@@ -54,6 +54,13 @@
               <option value="31" selected>31</option>
             </select>
           </div>
+          <div class="form-group">
+          <form id="formulario">
+            <label>Filtrar por tipo</label><br>
+
+            <input type="radio" name="tipo" value="mes" checked>Mes<br><input type="radio" name="tipo" value="año">Año<br><input type="radio" name="tipo" value="semestre">Semestre<br><input type="radio" name="tipo" value="trimestre">Trimestre<br>
+            </form>
+          </div>
           <a href="#" id="calcular" class="btn btn-primary">Calcular</a>
       </div>
     </div>
@@ -71,9 +78,12 @@
     $('#calcular').click(function(){
       var fecha_desde = parseInt($('#year_desde').val()+""+$('#month_desde').val()+""+$('#day_desde').val());
       var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
+      //console.log($("#promociones").val())
       if(fecha_hasta>=fecha_desde){
-        $.get('cf.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
+        console.log ($("input[name=tipo]:checked", "#formulario").val());
+        $.get('clf.php', {desde:fecha_desde,hasta:fecha_hasta,tipo:$("input[name=tipo]:checked", "#formulario").val()}, function(data){
           $('#resultados').html(data);
+        //  console.log(data);
         });
       }else alert("Rango de fechas erroneo.");
     });

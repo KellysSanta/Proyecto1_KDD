@@ -3,7 +3,7 @@
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"> Productos que casi nunca se venden</h1>
+      <h1 class="page-header"> Comparativo de compras por hijos</h1>
     </div>
   </div>
   <div class="row">
@@ -52,12 +52,6 @@
                   echo "<option value=".($i < 10 ? "0" : "").$i.">".($i < 10 ? "0" : "").$i."</option>";
               ?>
               <option value="31" selected>31</option>
-            </select>limite
-            <select data-placeholder="Limite" id="limite_p" style="width:70px;" tabindex="1">
-              <?php 
-                for($i=1;$i<=606;$i++)
-                  echo "<option value=".$i.">".$i."</option>";
-              ?>
             </select>
           </div>
           <a href="#" id="calcular" class="btn btn-primary">Calcular</a>
@@ -77,14 +71,12 @@
     $('#calcular').click(function(){
       var fecha_desde = parseInt($('#year_desde').val()+""+$('#month_desde').val()+""+$('#day_desde').val());
       var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
-      var limite_p = parseInt($('#limite_p').val());
       if(fecha_hasta>=fecha_desde){
-        $.get('ch.php', {desde:fecha_desde,hasta:fecha_hasta,limite_pr:limite_p}, function(data){
+        $.get('cke.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
           $('#resultados').html(data);
         });
       }else alert("Rango de fechas erroneo.");
     });
-
 
     for (var selector in config) {
       $(selector).chosen(config[selector]);

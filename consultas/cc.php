@@ -6,12 +6,14 @@
   var chart;
   var chartData = [
 <?php
-  //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT englishpromotionname AS nombre, count (*) as ventas FROM(SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factinternetsales WHERE dimpromotion.promotionkey = factinternetsales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT dimpromotion.promotionkey, dimpromotion.englishpromotionname FROM dimpromotion, factresellersales WHERE dimpromotion.promotionkey = factresellersales.promotionkey AND dimpromotion.promotionkey != 1 AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') AS mitabla1 GROUP BY englishpromotionname';
+  $query = 'SELECT temporada, ventas FROM (SELECT sum(ventas) as ventas, 'Primavera' as temporada FROM(SELECT count(*) AS ventas FROM factinternetsales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 3 AND 6AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT count(*) AS ventas FROM factresellersales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 3 AND 6 AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') as mitablita UNION ALL SELECT sum(ventas) as ventas, 'Verano' as temporada FROM(SELECT count(*) AS ventas FROM factinternetsales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 6 AND 9 AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT count(*) AS ventas FROM factresellersales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 6 AND 9 AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') as mitablita2 UNION ALL SELECT sum(ventas) as ventas, 'Otono' as temporada FROM(SELECT count(*) AS ventas FROM factinternetsales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 9 AND 12 AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' UNION ALL SELECT count(*) AS ventas FROM factresellersales WHERE EXTRACT (MONTH FROM duedate) BETWEEN 9 AND 12 AND EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].') as mitablita3 UNION ALL SELECT sum(ventas) as ventas, 'Invierno'  as temporada FROM(SELECT count(*) AS ventas FROM factinternetsales WHERE EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' AND EXTRACT (MONTH FROM duedate) BETWEEN 1 AND 3 OR EXTRACT (MONTH FROM duedate) = 12 UNION ALL SELECT count(*) AS ventas FROM factresellersales WHERE EXTRACT (YEAR FROM duedate) BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' AND EXTRACT (MONTH FROM duedate) BETWEEN 1 AND 3 OR EXTRACT (MONTH FROM duedate) = 12) as mitablita4) as mitablitafinal';
+  for($i = 0; $i<count($_GET["promociones"]);$i++){
+    $query = $query."".$_GET["promociones"][$i].",";
+  }
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
   $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['nombre']."', 'compras':".$line['ventas']."},";
+      $resultado= $resultado."{'promocion': '".$line['temporada']."', 'compras':".$line['ventas']."},";
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
