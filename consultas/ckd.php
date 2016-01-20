@@ -7,7 +7,7 @@
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = "SELECT maritalstatus AS estado_civil, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN ".$_GET['desde']." AND ".$_GET['hasta']." GROUP BY maritalstatus";
+  $query = "SELECT maritalstatus AS estado_civil, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedatekey BETWEEN ".$_GET['desde']." AND ".$_GET['hasta']." GROUP BY maritalstatus";
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }
