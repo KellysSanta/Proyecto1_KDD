@@ -7,7 +7,7 @@
   var chartData = [
 <?php
   //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT CASE WHEN numberchildrenathome = 0 THEN 'No'ELSE 'Si'END AS hijos, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY hijos';
+  $query = "SELECT CASE WHEN numberchildrenathome = 0 THEN 'No' ELSE 'Si' END AS hijos, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedate BETWEEN ".$_GET['desde']." AND ".$_GET['hasta']." GROUP BY hijos";
   for($i = 0; $i<count($_GET["promociones"]);$i++){
     $query = $query."".$_GET["promociones"][$i].",";
   }

@@ -75,14 +75,11 @@
   </div>
   <script>
     $('#calcular').click(function(){
-      var fecha_desde = parseInt($('#year_desde').val()+""+$('#month_desde').val()+""+$('#day_desde').val());
-      var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
-      var limite_p = parseInt($('#limite_p').val());
-      if(fecha_hasta>=fecha_desde){
-        $.get('cbb.php', {desde:fecha_desde,hasta:fecha_hasta,limite_pr:limite_p}, function(data){
+      var fecha_desde = $('#year_desde').val()+"/"+$('#month_desde').val()+"/"+$('#day_desde').val();
+      var fecha_hasta = $('#year_hasta').val()+"/"+$('#month_hasta').val()+"/"+$('#day_hasta').val();
+        $.get('cbb.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
           $('#resultados').html(data);
         });
-      }else alert("Rango de fechas erroneo.");
     });
 
 
