@@ -69,11 +69,13 @@
   </div>
   <script>
     $('#calcular').click(function(){
-      var fecha_desde = $('#year_desde').val()+"/"+$('#month_desde').val()+"/"+$('#day_desde').val();
-      var fecha_hasta = $('#year_hasta').val()+"/"+$('#month_hasta').val()+"/"+$('#day_hasta').val();
+      var fecha_desde = parseInt($('#year_desde').val()+""+$('#month_desde').val()+""+$('#day_desde').val());
+      var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
+      if(fecha_hasta>=fecha_desde){
         $.get('cba.php', {desde:fecha_desde,hasta:fecha_hasta}, function(data){
           $('#resultados').html(data);
         });
+      }else alert("Rango de fechas erroneo.");
     });
 
     for (var selector in config) {
