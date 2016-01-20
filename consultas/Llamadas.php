@@ -30,8 +30,8 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                  <li><a  href="#" onclick="actualizar('cf_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de llamadas por franjas horarias en días laborales"><i class=" fa fa-industry fa-fw"></i> Llamadas por franja horaria</a></li>
-                  <li><a  href="#" onclick="actualizar('cg_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación del nivel de llamadas al call center en días laborales Vs días festivos"><i class=" fa fa-industry fa-fw"></i> Llamadas  festivos vs laborales</a></li>
+                  <li><a  href="#" onclick="actualizar('cn_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación del nivel de llamadas al call center en días laborales Vs días festivos"><i class=" fa fa-industry fa-fw"></i> Llama.  festivos vs laborales</a></li>
+                  <li><a  href="#" onclick="actualizar('co_parametros.php')" data-toggle="tooltip" data-placement="right" data-original-title="Comparación de llamadas por franjas horarias en días laborales"><i class=" fa fa-industry fa-fw"></i> Llama. por franja horaria</a></li>
                 </ul>
             </div>
         </div>
