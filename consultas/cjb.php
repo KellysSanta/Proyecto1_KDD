@@ -6,15 +6,10 @@
   var chart;
   var chartData = [
 <?php
-  //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = "SELECT gender AS genero, count (*) AS total FROM factinternetsales, dimcustomer WHERE factinternetsales.customerkey = dimcustomer.customerkey AND duedatekey BETWEEN ".$_GET['desde']." AND ".$_GET['hasta']." GROUP BY gender";
-  for($i = 0; $i<count($_GET["promociones"]);$i++){
-    $query = $query."".$_GET["promociones"][$i].",";
-  }
+  $query = 'SELECT spanishproductname AS producto, SUM (totalproductcost)::numeric AS sales FROM dimproduct JOIN factresellersales ON dimproduct.productkey=factresellersales.productkey WHERE duedatekey BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY spanishproductname;';
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
-  $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['genero']."', 'compras':".$line['total']."},";
+      $resultado= $resultado."{'producto': '".$line['producto']."', 'sales':".str_replace(",", ".",$line['sales'])."},";
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
@@ -22,31 +17,38 @@
 ?>
 var chart = AmCharts.makeChart("chartdiv", {
   type: "serial",
+  "theme": "light",
   dataProvider: chartData,
-  categoryField: "promocion",
-  depth3D: 20,
-  angle: 30,
-
+  categoryField: "producto",
+  "gridAboveGraphs": true,
+  "startDuration": 1,
   categoryAxis: {
       labelRotation: 90,
-      gridPosition: "start"
+      gridPosition: "start",
+    "gridAlpha": 0,
+    "tickPosition": "start",
+    "tickLength": 20
   },
 
   valueAxes: [{
-      title: "Ventas"
+  	"gridColor": "#FFFFFF",
+    "gridAlpha": 0.2,
+    "dashLength": 0,
+    "title" : "Ventas Por Producto"
   }],
 
   graphs: [{
-      valueField: "compras",
-      type: "column",
-      lineAlpha: 0,
-      fillAlphas: 1
+    "balloonText": "[[category]]: <b>[[value]]</b>",
+    valueField: "sales",
+    type: "column",
+    lineAlpha: 0.2,
+    fillAlphas: 0.8
   }],
 
-  chartCursor: {
-      cursorAlpha: 0,
-      zoomable: true,
-      categoryBalloonEnabled: true
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
   },
   "export": {
       "enabled": true
@@ -61,4 +63,4 @@ var chart = AmCharts.makeChart("chartdiv", {
 <script type="text/javascript" src="../static/amcharts/plugins/export/export.js"></script>
 <link  type="text/css" href="../static/amcharts/plugins/export/export.css" rel="stylesheet">
 <!-- <![endif]-->
-<div id="chartdiv" style="width: 100%; height: 500px;"></div>
+<div id="chartdiv" style="width: 100%; height: 1000px;"></div>

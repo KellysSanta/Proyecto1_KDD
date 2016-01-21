@@ -3,7 +3,7 @@
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Promociones mas tomadas por los clientes</h1>
+      <h1 class="page-header">Total de ventas agrupado por paises por distribuidor</h1>
     </div>
   </div>
   <div class="row">
@@ -55,11 +55,7 @@
             </select>
           </div>
           <div class="form-group">
-          <form id="formulario">
-            <label>Filtrar por tipo</label><br>
-
-            <input type="radio" name="tipo" value="mes" checked>Mes<br><input type="radio" name="tipo" value="año">Año<br><input type="radio" name="tipo" value="semestre">Semestre<br><input type="radio" name="tipo" value="trimestre">Trimestre<br>
-            </form>
+          
           </div>
           <a href="#" id="calcular" class="btn btn-primary">Calcular</a>
       </div>
@@ -80,8 +76,8 @@
       var fecha_hasta = parseInt($('#year_hasta').val()+""+$('#month_hasta').val()+""+$('#day_hasta').val());
       //console.log($("#promociones").val())
       if(fecha_hasta>=fecha_desde){
-        console.log ($("input[name=tipo]:checked", "#formulario").val());
-        $.get('clf.php', {desde:fecha_desde,hasta:fecha_hasta,tipo:$("input[name=tipo]:checked", "#formulario").val()}, function(data){
+        //console.log (fecha_desde+" "+fecha_hasta);
+        $.get('chb.php', {desde:fecha_desde,hasta:fecha_hasta},function(data){
           $('#resultados').html(data);
         //  console.log(data);
         });

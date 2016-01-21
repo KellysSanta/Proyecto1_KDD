@@ -6,23 +6,10 @@
   var chart;
   var chartData = [
 <?php
-  $tipo = $_GET['tipo'];
-  if($tipo=="mes"){
-    $query = '';  
-  }else{
-
-  }
-  //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = '
-  SELECT f.id,f.nombre,SUM(f.compras) as compras FROM  (SELECT dp.promotionkey as id, dp.spanishpromotionname as Nombre, COUNT(dp.promotionkey) as compras FROM factinternetsales as fis, dimpromotion dp, dimdate dd  WHERE dd.datekey = fis.orderdatekey AND dp.promotionkey = fis.promotionkey AND dd.datekey BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY  dp.promotionkey UNION  SELECT dp.promotionkey as id, dp.spanishpromotionname as Nombre, COUNT(dp.promotionkey) as compras FROM factresellersales as frs, dimpromotion dp, dimdate dd WHERE dd.datekey = frs.orderdatekey AND dp.promotionkey = frs.promotionkey AND dd.datekey BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY  dp.promotionkey) as f WHERE f.id IN (';
-  for($i = 0; $i<count($_GET["promociones"]);$i++){
-    $query = $query."".$_GET["promociones"][$i].",";
-  }
-  $query = substr ($query, 0, -1).") GROUP BY f.id, f.nombre";
+  $query = 'SELECT spanishproductname AS producto, SUM (totalproductcost)::numeric AS sales FROM dimproduct JOIN factinternetsales ON dimproduct.productkey=factinternetsales.productkey WHERE duedatekey BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].' GROUP BY spanishproductname;';
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
-  $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['nombre']."', 'compras':".$line['compras']."},";
+      $resultado= $resultado."{'producto': '".$line['producto']."', 'sales':".str_replace(",", ".",$line['sales'])."},";
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
@@ -32,7 +19,7 @@ var chart = AmCharts.makeChart("chartdiv", {
   type: "serial",
   "theme": "light",
   dataProvider: chartData,
-  categoryField: "promocion",
+  categoryField: "producto",
   "gridAboveGraphs": true,
   "startDuration": 1,
   categoryAxis: {
@@ -47,12 +34,12 @@ var chart = AmCharts.makeChart("chartdiv", {
   	"gridColor": "#FFFFFF",
     "gridAlpha": 0.2,
     "dashLength": 0,
-    "title" : "Compras"
+    "title" : "Ventas Por Producto"
   }],
 
   graphs: [{
     "balloonText": "[[category]]: <b>[[value]]</b>",
-    valueField: "compras",
+    valueField: "sales",
     type: "column",
     lineAlpha: 0.2,
     fillAlphas: 0.8

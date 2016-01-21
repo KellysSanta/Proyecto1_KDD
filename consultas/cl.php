@@ -1,49 +1,55 @@
 <?php include '../conexion.php'; ?>
 <script src="../static/amcharts/amcharts.js" type="text/javascript"></script>
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
-<script src="../static/amcharts/pie.js"></script>
 <script src="../static/amcharts/themes/light.js"></script>
 <script>
   var chart;
   var chartData = [
     <?php 
-      $query = "select P.EnglishProductName, min(I.unitsbalance)  as units from FactProductInventory as I join dimproduct as P on P.productkey = I.productkey where I.DateKey >= '".$_GET["desde"]."' group by P.EnglishProductName order by units desc limit ".$_GET["hasta"].";";
+      $query = "select EnglishProductName, min(I.unitsbalance)  as units from FactProductInventory as I join dimproduct as P on P.productkey = I.productkey where I.DateKey >= '".$_GET["desde"]."' group by P.EnglishProductName order by units desc limit ".$_GET["hasta"].";";
       $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
-      $restulado = "";
+      $resultado = "";
       while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'descripcion': '".$line['EnglishProductName']."', 'valor':".$line['units']."},";
-  }
+        $resultado= $resultado.'{"descripcion": "'.$line['EnglishProductName'].'", "valor":'.$line['units'].'},';
+      }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
   pg_free_result($result);
 ?>
 var chart = AmCharts.makeChart("chartdiv", {
   type: "serial",
+  "theme": "light",
   dataProvider: chartData,
   categoryField: "descripcion",
-  depth3D: 20,
-  angle: 30,
-
+  "gridAboveGraphs": true,
+  "startDuration": 1,
   categoryAxis: {
       labelRotation: 90,
-      gridPosition: "start"
+      gridPosition: "start",
+    "gridAlpha": 0,
+    "tickPosition": "start",
+    "tickLength": 20
   },
 
   valueAxes: [{
-      title: "Valor"
+    "gridColor": "#FFFFFF",
+    "gridAlpha": 0.2,
+    "dashLength": 0,
+    "title" : "Unidades"
   }],
 
   graphs: [{
-      valueField: "valor",
-      type: "column",
-      lineAlpha: 0,
-      fillAlphas: 1
+    "balloonText": "[[category]]: <b>[[value]]</b>",
+    valueField: "valor",
+    type: "column",
+    lineAlpha: 0.2,
+    fillAlphas: 0.8
   }],
 
-  chartCursor: {
-      cursorAlpha: 0,
-      zoomable: true,
-      categoryBalloonEnabled: true
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
   },
   "export": {
       "enabled": true

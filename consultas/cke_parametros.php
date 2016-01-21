@@ -3,7 +3,7 @@
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"> Comparativo de compras segun hijos</h1>
+      <h1 class="page-header"> Comparativo de compras por hijos</h1>
     </div>
   </div>
   <div class="row">

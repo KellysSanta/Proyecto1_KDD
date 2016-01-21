@@ -1,19 +1,17 @@
 <?php include '../conexion.php'; ?>
 <script src="../static/amcharts/amcharts.js" type="text/javascript"></script>
 <script src="../static/amcharts/serial.js" type="text/javascript"></script>
+<script src="../static/amcharts/themes/light.js"></script>
 <script>
   var chart;
+    
+ 
   var chartData = [
 <?php
-  //$dbconn = pg_connect("host=".$_SESSION["host"]." dbname=".$_SESSION["db"]." user=".$_SESSION["user"]." password=".$_SESSION["123456"]) or die('No se ha podido conectar: ' . pg_last_error());
-  $query = 'SELECT salesterritorycountry AS country, SUM (totalproductcost) AS sales FROM dimsalesterritory JOIN factresellersales ON dimsalesterritory.salesterritorykey=factresellersales.salesterritorykey GROUP BY salesterritorycountry;';
-  for($i = 0; $i<count($_GET["promociones"]);$i++){
-    $query = $query."".$_GET["promociones"][$i].",";
-  }
+  $query = 'SELECT salesterritorycountry AS country, SUM (totalproductcost)::numeric AS sales  FROM dimsalesterritory JOIN factinternetsales ON dimsalesterritory.salesterritorykey = factinternetsales.salesterritorykey WHERE duedatekey BETWEEN '.$_GET["desde"].' AND '.$_GET["hasta"].'  GROUP BY salesterritorycountry ORDER BY country;';
   $result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
-  $restulado = "";
   while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-      $resultado= $resultado."{'promocion': '".$line['country']."', 'compras':".$line['sales']."},";
+      $resultado= $resultado.'{"country": "'.$line['country'].' ","sales":'.str_replace(",", ".",$line['sales']).'},';
   }
   $resultado = rtrim($resultado, ",");
   echo $resultado."];\n";
@@ -22,7 +20,7 @@
 var chart = AmCharts.makeChart("chartdiv", {
   type: "serial",
   dataProvider: chartData,
-  categoryField: "promocion",
+  categoryField: "country",
   depth3D: 20,
   angle: 30,
 
@@ -36,7 +34,7 @@ var chart = AmCharts.makeChart("chartdiv", {
   }],
 
   graphs: [{
-      valueField: "compras",
+      valueField: "sales",
       type: "column",
       lineAlpha: 0,
       fillAlphas: 1
